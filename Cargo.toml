@@ -29,15 +29,13 @@ tonic = {version = "0.11", optional = true}
 # And we need to keep Cargo.lock in track, so CI can choose a correct version.
 #
 # See https://doc.rust-lang.org/cargo/reference/resolver.html#semver-compatibility
-raft-proto = { path = "../raft-rs/proto", default-features = false }
-grpcio = { path="../grpc-rs", default-features = false, optional = true }
+raft-proto = { git = "https://github.com/glorv/raft-rs", branch = "prost", default-features = false }
+grpcio = { git="https://github.com/glorv/grpc-rs", branch = "prost", default-features = false, optional = true }
 [build-dependencies]
 # protobuf-build = { version = "0.*", default-features = false }
-# protobuf-build = { git = "https://github.com/glorv/protobuf-build", branch = "tonic", default-features = false }
-protobuf-build = {path = "../protobuf-build", default-features = false}
+protobuf-build = { git = "https://github.com/glorv/protobuf-build", branch = "tonic", default-features = false }
 
 [patch.crates-io]
 # raft-proto = { git = "https://github.com/tikv/raft-rs", rev="95c532612ee6a83591fce9a8b51d6afe87b58835"}
-raft-proto = { path = "../raft-rs/proto" }
 protobuf-codegen = { git = "https://github.com/pingcap/rust-protobuf", rev="82b49fea7e696fd647b5aca0a6c6ec944eab3189" }
 protobuf = { git = "https://github.com/pingcap/rust-protobuf", rev="82b49fea7e696fd647b5aca0a6c6ec944eab3189" }
