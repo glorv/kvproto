@@ -693,7 +693,7 @@ dependencies = [
  "protobuf 2.8.0",
  "protobuf-build",
  "raft-proto",
- "tonic",
+ "tonic 0.11.0 (git+https://github.com/glorv/tonic?branch=patch-health)",
  "tonic-build-protobuf",
  "tonic-codec-protobuf",
 ]
@@ -1513,6 +1513,32 @@ dependencies = [
 ]
 
 [[package]]
+name = "tonic"
+version = "0.11.0"
+source = "git+https://github.com/glorv/tonic?branch=patch-health#a309685a92ef4ed092dd5423735755d5e0f2ca66"
+dependencies = [
+ "async-stream",
+ "async-trait",
+ "axum",
+ "base64",
+ "bytes",
+ "h2",
+ "http",
+ "http-body",
+ "hyper",
+ "hyper-timeout",
+ "percent-encoding",
+ "pin-project",
+ "prost 0.12.6",
+ "tokio",
+ "tokio-stream",
+ "tower",
+ "tower-layer",
+ "tower-service",
+ "tracing",
+]
+
+[[package]]
 name = "tonic-build"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1549,7 +1575,7 @@ checksum = "da0695ca1f26d40f782bade907e7b5bdf874bb7760ba44b3386bdf432c4026ef"
 dependencies = [
  "bytes",
  "protobuf 2.8.0",
- "tonic",
+ "tonic 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
