@@ -36,17 +36,16 @@ fn main() {
         .append_to_black_list("eraftpb")
         .generate();
 
-    #[cfg(feature = "tonic-protobuf")] {
-        for file in proto_files {
-            tonic_build_protobuf::Builder::new()
-                .out_dir(format!(
-                    "{}/protos",
-                    std::env::var("OUT_DIR").expect("No OUT_DIR defined")
-                ))
-                .proto_path(format!("crate"))
-                .file_name(|pkg, _| format!("{pkg}_grpc"))
-                .codec_path("::tonic_codec_protobuf::ProtobufCodecV2")
-                .compile(&[file], &["proto", "include"]);
-        }
+    #[cfg(feature = "tonic-protobuf")]
+    {
+        tonic_build_protobuf::Builder::new()
+            .out_dir(format!(
+                "{}/protos",
+                std::env::var("OUT_DIR").expect("No OUT_DIR defined")
+            ))
+            .proto_path(format!("crate"))
+            .file_name(|pkg, _| format!("{pkg}_grpc"))
+            .codec_path("::tonic_codec_protobuf::ProtobufCodecV2")
+            .compile(&proto_files, &["proto", "include"]);
     }
 }

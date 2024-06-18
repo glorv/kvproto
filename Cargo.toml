@@ -26,7 +26,7 @@ futures = "0.3.5"
 lazy_static = { version = "1.3", optional = true }
 #tonic = {version = "0.11", optional = true}
 tonic = { git = "https://github.com/glorv/tonic", branch = "patch-health", optional = true }
-tonic-codec-protobuf = { version = "0.1", default-features = false, features = ["protobuf-v2"], optional = true }
+tonic-codec-protobuf = { git = "https://github.com/glorv/tonic-protobuf", branch = "build-v2", default-features = false, features = ["protobuf-v2"], optional = true }
 
 # Use wildcard for crates whose version are less than 1.0.0 and are updated
 # frequently. So that we do not have to update twice in TiKV and in kvproto.
@@ -38,7 +38,7 @@ grpcio = { git="https://github.com/glorv/grpc-rs", branch = "prost", default-fea
 [build-dependencies]
 # protobuf-build = { version = "0.*", default-features = false }
 protobuf-build = { git = "https://github.com/glorv/protobuf-build", branch = "tonic", default-features = false }
-tonic-build-protobuf = "0.1"
+tonic-build-protobuf = { git = "https://github.com/glorv/tonic-protobuf", branch = "build-v2", default-features = false, features = ["protobuf-v2"]  }
 
 [patch.crates-io]
 # raft-proto = { git = "https://github.com/tikv/raft-rs", rev="95c532612ee6a83591fce9a8b51d6afe87b58835"}
