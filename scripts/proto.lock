@@ -20528,6 +20528,11 @@
                 "id": 8,
                 "name": "kv_write_rpc_count",
                 "type": "double"
+              },
+              {
+                "id": 9,
+                "name": "expected_wait_ru",
+                "type": "double"
               }
             ]
           },
