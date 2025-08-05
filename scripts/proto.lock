@@ -8456,6 +8456,37 @@
                 "type": "Error"
               }
             ]
+          },
+          {
+            "name": "CheckAndCompactRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "range",
+                "type": "Range"
+              },
+              {
+                "id": 2,
+                "name": "ttl",
+                "type": "uint64"
+              }
+            ]
+          },
+          {
+            "name": "CheckAndCompactRespose"
+          },
+          {
+            "name": "RemoveRangeRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "range",
+                "type": "Range"
+              }
+            ]
+          },
+          {
+            "name": "RemoveRangeResponse"
           }
         ],
         "services": [
@@ -8535,6 +8566,16 @@
                 "name": "SuspendImportRPC",
                 "in_type": "SuspendImportRPCRequest",
                 "out_type": "SuspendImportRPCResponse"
+              },
+              {
+                "name": "CheckAndCompact",
+                "in_type": "CheckAndCompactRequest",
+                "out_type": "CheckAndCompactRespose"
+              },
+              {
+                "name": "RemoveForcePartitionRange",
+                "in_type": "RemoveRangeRequest",
+                "out_type": "RemoveRangeResponse"
               }
             ]
           }

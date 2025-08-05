@@ -72,6 +72,10 @@ service ImportSST {
     // Suspend ingest for data listeners don't support catching import data.
     rpc SuspendImportRPC(SuspendImportRPCRequest) returns (SuspendImportRPCResponse) {}
 
+    rpc CheckAndCompact(CheckAndCompactRequest) returns (CheckAndCompactRespose) {}
+
+    rpc RemoveForcePartitionRange(RemoveRangeRequest) returns (RemoveRangeResponse) {}
+
 }
 
 message SuspendImportRPCRequest {
@@ -462,4 +466,17 @@ message ClearRequest {
 message ClearResponse {
     Error error = 1;
 }
+
+message CheckAndCompactRequest {
+    Range range = 1;
+    uint64 ttl = 2;
+}
+
+message CheckAndCompactRespose {}
+
+message RemoveRangeRequest {
+    Range range = 1;
+}
+
+message RemoveRangeResponse {}
 
